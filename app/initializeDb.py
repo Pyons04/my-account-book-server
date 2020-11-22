@@ -2,7 +2,6 @@ import os
 import mysql.connector as mysql
 from dotenv import load_dotenv
 
-
 load_dotenv(verbose=True)
 
 config = {
@@ -11,17 +10,15 @@ config = {
   'user':      os.getenv("USER"),
   'password' : os.getenv("DB_PASSWORD")
 }
-#NOTE: HerokuのDB DynoはDATABASE名が所与のため、DATABASEの初期化処理は不要
 
-#connection = mysql.connect(**config)
-#mysqlCursor = connection.cursor()
-# mysqlCursor.execute(" CREATE DATABASE IF NOT EXISTS MyAccountBook ")
+connection = mysql.connect(**config)
+mysqlCursor = connection.cursor()
+mysqlCursor.execute(" CREATE DATABASE IF NOT EXISTS MyAccountBook ")
 
-#mysqlCursor.close()
-#connection.close()
+mysqlCursor.close()
+connection.close()
 
-# config['database'] = 'MyAccountBook'
-config['database'] = os.getenv("HEROKU_DATABASE")
+config['database'] = 'MyAccountBook'
 connection  = mysql.connect(**config)
 
 mysqlCursol = connection.cursor()
@@ -66,8 +63,3 @@ mysqlCursol.execute("""
 
 mysqlCursol.close()
 connection.close()
-
-
-
-
-

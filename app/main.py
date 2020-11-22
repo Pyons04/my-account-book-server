@@ -177,7 +177,7 @@ config = {
   'port':      os.getenv("DB_PORT"),
   'user':      os.getenv("USER"),
   'password' : os.getenv("DB_PASSWORD"),
-  'database' : os.getenv("HEROKU_DATABASE"),
+  'database' : 'MyAccountBook'
 }
 connection = mysql.connect(**config)
 connection.ping(reconnect=True)
