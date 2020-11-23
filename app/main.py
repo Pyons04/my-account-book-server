@@ -100,7 +100,7 @@ def getCategories():
           `description`, 
           DATE_FORMAT(createdDate, '%Y-%m-%d') AS createdDate
         FROM 
-          categories
+          Categories
         WHERE
           user = %s;          
       """, 
@@ -136,7 +136,7 @@ def getTransactions():
         DATE_FORMAT(realizationDate, '%Y-%m-%d') AS realizationDate,
         DATE_FORMAT(createdDate,     '%Y-%m-%d') AS createdDate
       FROM 
-        transactions
+        Transactions
       WHERE
         user = %s;
         /* AND (CASE WHEN ISNULL(@minPrice) THEN 1 ELSE price > @minPrice END) */
