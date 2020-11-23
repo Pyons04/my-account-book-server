@@ -132,7 +132,8 @@ def getTransactions():
       SELECT 
         `key`, 
         `price`, 
-        `categoryKey`, 
+        `categoryKey`,
+        `description`, 
         DATE_FORMAT(realizationDate, '%Y-%m-%d') AS realizationDate,
         DATE_FORMAT(createdDate,     '%Y-%m-%d') AS createdDate
       FROM 
